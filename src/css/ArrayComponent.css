@@ -1,0 +1,33 @@
+.array-container {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.array-visual {
+  display: flex;
+  align-items: center;
+  width: 660px;
+  height: 50px;
+  margin: 0 auto;
+  border: 2px solid #333;
+  background-color: #f0f0f0;
+  
+}
+
+.array-item {
+  width: 55px;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+}
+
+
+.result-caontainer{
+  background-color: rgb(0, 217, 255);
+
+  width: 30%;
+  height: 70px;
+
+}

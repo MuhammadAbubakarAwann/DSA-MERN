@@ -1,0 +1,210 @@
+.hashTable-container {
+  text-align: center;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.hash-item {
+  width: fit-content;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.h-item {
+  background-color: rgb(193, 193, 14);
+  border: 2px solid white;
+}
+
+.BST-node{
+  background-color: black;
+}
+
+.hash-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 660px;
+  height: 50px;
+  margin: 0 auto;
+  
+}
+
+
+
+.result-caontainer {
+  background-color: rgb(0, 217, 255);
+
+  width: 30%;
+  height: 70px;
+
+}
+
+
+
+.toggle-button {
+  background-color: rgb(255, 187, 0);
+  position: fixed;
+  font-weight: bold;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: height 0.3s ease-in-out;
+}
+
+.hash-btns-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 0.3s ease-in-out;
+  background-color: rgb(0, 217, 255);
+  padding: 0;
+  z-index: 9;
+}
+
+.hash-btns-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 8;
+
+}
+
+.hash-btns-container ul li {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  position: relative;
+  z-index: 8;
+}
+
+
+
+.hash-btns-container.slide-out {
+  transform: translateX(-120%);
+}
+
+.hash-btns-container.slide-in {
+  transform: translateX(30%);
+}
+
+.input-container {
+  position: fixed;
+  left: 120px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  z-index: 7;
+
+}
+
+.input-field {
+  background-color: rgb(194, 45, 45);
+  color: white;
+  border: none;
+  margin-left: 5px;
+}
+
+.inp-button {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  width: 40px;
+}
+
+#rem_button {
+  background-color: black;
+  color: white;
+  width: 145px;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.sort-button {
+  background-color: black;
+  color: white;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.input-field::placeholder {
+  color: white;
+}
+
+.hashTable-handler-wrapper {
+  position: absolute;
+  bottom: 120px;
+  left: 0px;
+}
+
+.result-container-wrapper {
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+}
+
+.result-container {
+
+  background-color: rgb(0, 0, 0);
+  width: 300px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.result-container p {
+
+  margin-bottom: 0px;
+}
+
+
+
+.input-container.slide-out {
+  transform: translateX(-190%);
+}
+
+.input-container.slide-in {
+  transform: translateX(-5%);
+}
+
+
+.hash-item.highlight {
+  background-color: rgb(72, 222, 72);
+  color: white;
+}
+
+li button {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+}
+
+li button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

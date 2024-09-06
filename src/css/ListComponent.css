@@ -1,0 +1,176 @@
+.list-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.list-visual {
+  display: flex;
+  align-items: center;
+  width: 680px;
+  height: 45px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+
+.list-item {
+
+  width: 100px;
+  height: 95%;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  transition: width 0.5s ease-in-out;
+
+}
+
+.list-item .data {
+  width: 40%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item .next {
+  width: 46%;
+  background-color: rgb(224, 7, 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item .arrow {
+  width: 20%;
+  background-color: white;
+  color: rgb(18, 161, 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item.no-arrow {
+  margin-right: -20px;
+}
+
+button {
+  margin: 5px;
+}
+
+input {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.nav-link.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.list-handler-wrapper {
+  position: absolute;
+  bottom: 180px;
+  left: 0px;
+}
+
+
+.object-handler-wrapper {
+  position: absolute;
+  bottom: 150px;
+  left: 0px;
+}
+
+.object-btns-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 0.3s ease-in-out;
+  background-color: rgb(0, 217, 255);
+  padding: 0;
+  z-index: 9;
+}
+
+.object-btns-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 8;
+
+}
+
+.object-btns-container ul li {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  position: relative;
+  z-index: 8;
+}
+
+
+
+.object-btns-container.slide-out {
+  transform: translateX(-120%);
+}
+
+.object-btns-container.slide-in {
+  transform: translateX(30%);
+}
+
+.list-item.highlight {
+  border: 1px solid black;
+
+}
+
+.data.highlight {
+  background-color: rgb(72, 222, 72);
+  color: white;
+}
+
+.next.highlight {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.list-btns-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 0.3s ease-in-out;
+  background-color: rgb(0, 217, 255);
+  padding: 0;
+  z-index: 9;
+}
+
+.list-btns-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 8;
+
+}
+
+.list-btns-container ul li {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  position: relative;
+  z-index: 8;
+}
+
+
+
+.list-btns-container.slide-out {
+  transform: translateX(-120%);
+}
+
+.list-btns-container.slide-in {
+  transform: translateX(30%);
+}

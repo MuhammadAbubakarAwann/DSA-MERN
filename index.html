@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Bus</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #e0f7fa;
+}
+
+.bus {
+    width: 500px;
+    height: 200px;
+    background: #ffeb3b;
+    border-radius: 20px 20px 10px 10px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.top {
+    width: 100%;
+    height: 70%;
+    background: #ffeb3b;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.windows {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+}
+
+.window {
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 5px;
+    border: 2px solid #000;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.door {
+    width: 60px;
+    height: 100px;
+    background: #ffffff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.bottom {
+    width: 100%;
+    height: 30%;
+    background: #ffeb3b;
+    position: relative;
+    padding-right: 20px;
+}
+
+.stripe {
+    width: 100%;
+    height: 15px;
+    background: #d32f2f;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.wheel {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.front-wheel {
+    left: 60px;
+}
+
+.back-wheel {
+    right: 60px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="bus">
+        <div class="top">
+            <div class="windows">
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+            </div>
+            <div class="door"></div>
+        </div>
+        <div class="bottom">
+            <div class="stripe"></div>
+        </div>
+        <div class="wheel front-wheel"></div>
+        <div class="wheel back-wheel"></div>
+    </div>
+</body>
+</html>
