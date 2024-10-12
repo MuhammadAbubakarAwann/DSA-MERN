@@ -45,7 +45,4 @@ const store = configureStore({
     toast: toastSlice,
   }
 });
-
-
-
 export default store;

@@ -37,8 +37,7 @@ const BinaryTreeHandlers = () => {
     setRootInputVisible(false);
     setSearchInputVisible(false);
     setTraverseInputVisible(false)
-
-
+    
   };
 
   const handleRootVisibility = () => {

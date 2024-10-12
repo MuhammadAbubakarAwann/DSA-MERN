@@ -21,7 +21,6 @@ const QueueComponent = () => {
     }
   }, [dispatch, queue.length]);
 
-  // Persist the queue to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('queue', JSON.stringify(queue));
   }, [queue]);

@@ -6,63 +6,75 @@ import Signup from './signup/Signup';
 import '../../css/Auth.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-
 const Auth = () => {
-  const navigate = useNavigate(); 
-  const location = useLocation(); 
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
 
-  const isFlipped = useSelector((state) => state.auth.isFlipped)
+  const isFlipped = useSelector((state) => state.auth.isFlipped);
 
-  
   useEffect(() => {
     if (location.pathname === '/signup') {
-      dispatch(showSignup()) 
+      dispatch(showSignup());
     } else {
-      dispatch(showSignin()) 
+      dispatch(showSignin());
     }
-  }, [location.pathname]);
+  }, [location.pathname, dispatch]);
 
-  
   const handleToggle = () => {
     if (isFlipped) {
       navigate('/signin');
     } else {
       navigate('/signup');
     }
-    dispatch(flipCard())
+    dispatch(flipCard());
+  };
+
+  const handleLoginClick = () => {
+    navigate('/signin');
+    if (isFlipped) {
+      dispatch(flipCard());
+    }
+  };
+
+  const handleSignupClick = () => {
+    navigate('/signup');
+    if (!isFlipped) {
+      dispatch(flipCard());
+    }
   };
 
   return (
     <div className="auth-wrapper">
       <div className="toggle-handlers">
         <h6 className="labels">
-          <span>Log In</span>
-          <span>Sign Up</span>
+          <span className='auth-flippers' onClick={handleLoginClick}>Log In</span>
+          <span className='auth-flippers' onClick={handleSignupClick}>Sign Up</span>
         </h6>
         <div className={`text-${isFlipped ? 'signin' : 'signup'}`} id="auth-toggler">
           <input
             className="checkbox"
             type="checkbox"
-            onClick={handleToggle} 
+            onClick={handleToggle}
             id="reg-log"
             name="reg-log"
-            checked={isFlipped} 
+            checked={isFlipped}
+            readOnly
           />
           <label htmlFor="reg-log"></label>
         </div>
       </div>
 
       <div className="auth-card">
-        <div className={`card-container ${isFlipped ? 'flipped' : ''}`}> 
+        <div className={`card-container ${isFlipped ? 'flipped' : ''}`}>
           <div className="front">
             <div className="signin-wrapper">
-              <Signin /> 
+              <Signin />
             </div>
           </div>
           <div className="back">
             <div className="signup-wrapper">
-              <Signup /> 
+              <Signup />
             </div>
           </div>
         </div>

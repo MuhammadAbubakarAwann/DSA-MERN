@@ -19,39 +19,40 @@ const authSlice = createSlice({
     token: persistedToken || null,
     email: persistedEmail || null,
     isPremium: persistedIsPremium || false,
-    isAuthenticated: !!persistedToken,  // If there's a token, the user is authenticated
+    isAuthenticated: !!persistedToken,  
   },
   reducers: {
     loginSuccess: (state, action) => {
       state.token = action.payload.token;
       state.email = action.payload.email;
       state.isAuthenticated = true;
-      state.isPremium = action.payload.isPremium || false; // Set isPremium from the payload
+      state.isPremium = action.payload.isPremium || false;
     
-      // Save token, email, and isPremium to localStorage
       localStorage.setItem('token', action.payload.token);
       localStorage.setItem('email', action.payload.email);
-      localStorage.setItem('isPremium', action.payload.isPremium ? 'true' : 'false'); // Persist isPremium
+      localStorage.setItem('isPremium', action.payload.isPremium ? 'true' : 'false');
     
-      const tokenExpiration = new Date().getTime() + action.payload.expiresIn * 1000;
-      localStorage.setItem('tokenExpiration', tokenExpiration);
+      const tokenExpiration = action.payload.expiresIn; 
+      localStorage.setItem('tokenExpiration', tokenExpiration); 
     
       console.log("User logged in:", state.email);
-    },
+    },    
+    
     
     logout: (state) => {
       state.token = null;
       state.email = null;
       state.isAuthenticated = false;
+      state.isPremium = false;
 
-      // Clear the localStorage on logout
       localStorage.removeItem('token');
       localStorage.removeItem('email');
       localStorage.removeItem('isPremium');
+      localStorage.removeItem('tokenExpiration');
     },
     upgradeToPremium: (state) => {
       state.isPremium = true;
-      localStorage.setItem('isPremium', 'true'); // Persist premium status
+      localStorage.setItem('isPremium', 'true'); 
 
 
       console.log("premium aya:", state.isPremium)

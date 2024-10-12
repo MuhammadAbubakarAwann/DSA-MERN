@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const priorityQueueSlice = createSlice({
   name: 'priorityQueue',
   initialState : {
@@ -37,7 +35,7 @@ const priorityQueueSlice = createSlice({
         state.operationResults = 'Queue is empty';
         return;
       }
-      const dequeuedItem = state.queue.shift(); // Remove the first element
+      const dequeuedItem = state.queue.shift(); 
       state.operationResults = `Dequeued element: ${dequeuedItem.element} with priority: ${dequeuedItem.priority}`;
       console.log("Dequeuing:", dequeuedItem);
     },

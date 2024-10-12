@@ -163,6 +163,7 @@ li button:hover {
 .circularQueue-container {
   text-align: center;
   margin-top: 150px;
+  
 }
 
 .circularQueue-visual {
@@ -199,7 +200,7 @@ li button:hover {
   background-color: rgb(109, 109, 109);
 }
 
-.circularQueue-item.front {
+.circularQueue-item.fr {
   background-color: rgb(163, 163, 163);
 }
 

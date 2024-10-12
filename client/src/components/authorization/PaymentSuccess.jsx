@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { loginSuccess, upgradeToPremium } from '../../app/services/auth/authSlice';
+import { showToast } from '../../app/services/utilities/toastSlice';
 
 const PaymentSuccess = () => {
   const dispatch = useDispatch();
   
-  // Track whether the premium status is still being updated
   const [isUpdating, setIsUpdating] = useState(true);
 
-  const isPremium = useSelector((state) => state.auth.isPremium);  // Get the premium status from Redux
+  const isPremium = useSelector((state) => state.auth.isPremium); 
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -21,21 +21,23 @@ const PaymentSuccess = () => {
 
         const response = await axios.get('http://localhost:8080/api/auth/me', {
           headers: {
-            Authorization: `Bearer ${token}`,  // Pass the token correctly
+            Authorization: `Bearer ${token}`, 
           },
         });
 
         const updatedUser = response.data;
 
-        // Dispatch user data to update Redux store
         dispatch(loginSuccess({ email: updatedUser.email, token }));
+        dispatch(showToast({ type: 'success', message:"Payment Successfull" })); 
+        setTimeout(() => {
+        dispatch(showToast({ type: 'success', message:"Updraged to premium" })); 
+          
+        }, 3000)
 
-        // Update premium status if the user is premium
+
         if (updatedUser.isPremium) {
           dispatch(upgradeToPremium());
         }
-
-        // After update is complete, stop showing the loading text
         setIsUpdating(false);
 
       } catch (error) {
@@ -48,11 +50,11 @@ const PaymentSuccess = () => {
   }, [dispatch]);
 
   if (isUpdating) {
-    // Show loading text only while the status is being updated
+
     return <p>Payment Successful! Your premium status is being updated...</p>;
   }
 
-  return null; // Returning null will remove the text once the premium content is loaded
+  return null; 
 };
 
 export default PaymentSuccess;

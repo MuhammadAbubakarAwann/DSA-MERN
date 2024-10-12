@@ -63,8 +63,8 @@ function findNode(root, key) {
 }
 
 function insertNode(root, parentNodeKey, key, value, left, right, id) {
-  const { node: parentNode } = findNode(root, parentNodeKey); // Extract the node from the result
-  if (!parentNode) return false; // Check if the parent node exists
+  const { node: parentNode } = findNode(root, parentNodeKey); 
+  if (!parentNode) return false; 
 
   const canInsertLeft = left && parentNode.left === null;
   const canInsertRight = right && parentNode.right === null;

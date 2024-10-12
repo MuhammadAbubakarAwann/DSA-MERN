@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Node class for the circular linked list
 class Node {
   constructor(value) {
     this.value = value;
@@ -10,7 +9,6 @@ class Node {
   }
 }
 
-// Initial state for the Redux slice
 const initialState = {
   head: null,
   tail: null,
@@ -40,7 +38,7 @@ const circularLinkedListSlice = createSlice({
       if (!state.head) {
         state.head= convertNodeToPlainObject(newNode);
         state.tail= convertNodeToPlainObject(newNode);
-        newNode.next= convertNodeToPlainObject(newNode);  // Circular linkage
+        newNode.next= convertNodeToPlainObject(newNode); 
         newNode.previous= convertNodeToPlainObject(newNode);
       } else {
         newNode.previous = state.tail;

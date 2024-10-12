@@ -1,5 +1,3 @@
-// src/components/BinaryTreeComponent.js
-
 import React from 'react';
 import '../../../css/BinaryTreeComponent.css';
 import ElementContainer from './subComponents/ElementContainer';

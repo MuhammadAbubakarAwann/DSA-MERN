@@ -15,16 +15,50 @@ import CircularQueueComponent from './components/DSAComponents/circilarQueue/Cir
 import PriorityQueueComponents from './components/DSAComponents/priorityQueue/PriorityQueueComponents';
 import BSTComponent from './components/DSAComponents/binarySearchTree/BSTComponent';
 import Auth from './components/authentication/Auth';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PremiumRoute from './components/authorization/PremiumRoute';
 import PaymentSuccess from './components/authorization/PaymentSuccess';
 import PaymentCancel from './components/authorization/PaymentCancel';
 import GlobalToaster from './utils/GlobalToaster';
+import Logout from './components/authentication/logout/Logout';
+import { logout } from './app/services/auth/authSlice';
+import { useEffect } from 'react';
+import { showToast } from './app/services/utilities/toastSlice';
 
 
 function App() {
+  const dispatch = useDispatch()
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const userEmail = useSelector((state) => state.auth.email);
+
+  useEffect(() => {
+    const tokenExpiration = localStorage.getItem('tokenExpiration');
+    if (tokenExpiration) {
+      const expirationTime = parseInt(tokenExpiration, 10);
+      const currentTime = new Date().getTime();
+
+      console.log("Current Time:", currentTime);
+      console.log("Token Expiration Time:", expirationTime);
+
+      if (currentTime > expirationTime) {
+        console.log("Session has expired, logging out.");
+        dispatch(logout());
+        dispatch(showToast({ type: 'warning', message:  "Login Session expired, please log in again."  }));
+
+      } else {
+        const timeRemaining = expirationTime - currentTime;
+
+        setTimeout(() => {
+          console.log("Token has expired");
+          dispatch(logout());
+          dispatch(showToast({ type: 'warning', message:  "Login Session expired, please log in again."  }));
+
+        }, timeRemaining);
+      }
+    }
+  }, [dispatch, isAuthenticated]);
+
 
 
   return (
@@ -83,7 +117,13 @@ function App() {
 
               <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/payment-cancel" element={<PaymentCancel />} />
+
             </Routes>
+            <Logout />
+            
+              <p>user Email : {userEmail}</p>
+            
+
           </>
 
         )

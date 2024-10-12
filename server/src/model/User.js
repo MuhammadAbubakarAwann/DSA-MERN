@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
   },
   isPremium: {
     type: Boolean,
-    default: false,  // New field to track if the user is premium
+    default: false,  
   },
 }, { timestamps: true });
 

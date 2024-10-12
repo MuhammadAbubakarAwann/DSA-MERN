@@ -1,6 +1,6 @@
-// src/components/signin/Signin.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode'; 
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../../app/services/auth/authSlice';
 import { showToast } from '../../../app/services/utilities/toastSlice';
@@ -17,25 +17,30 @@ const Signin = () => {
     e.preventDefault();
     axios.post('http://localhost:8080/api/auth/signin', { email, password })
       .then(result => {
-        dispatch(showToast({ type: 'success', message: result.data.message })); 
+        dispatch(showToast({ type: 'success', message: result.data.message }));
 
-        const { token } = result.data.token;
+        const token = result.data.token; 
         setEmail('');
         setPassword('');
+        const decodedToken = jwtDecode(token); 
+        console.log("dec token:", decodedToken);
+        const expirationTime = decodedToken.exp * 1000; 
+        console.log("exp time:", expirationTime);
+
         setTimeout(() => {
           dispatch(loginSuccess({
-            token: result.data.token,
+            token: token, 
             email: result.data.data.user.email,
-            isPremium: result.data.data.user.isPremium
+            isPremium: result.data.data.user.isPremium,
+            expiresIn: expirationTime
           }));
 
-
           navigate('/');
-        }, 3000); 
+        }, 3000);
 
       })
       .catch(err => {
-        dispatch(showToast({ type: 'warning', message: err.response?.data?.message || "Login failed, try again" })); // Dispatch error toast
+        dispatch(showToast({ type: 'warning', message: err.response?.data?.message || "Login failed, try again" }));
       });
   };
 

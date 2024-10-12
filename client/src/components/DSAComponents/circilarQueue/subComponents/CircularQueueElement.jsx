@@ -12,7 +12,7 @@ const CircularQueueElement = (props) => {
   return (
     <div className='cq-element'>
       <div
-        className={`circularQueue-item ${isRear ? 'rear' : ''} ${isFront ? 'front' : ''}`}
+        className={`circularQueue-item ${isRear ? 'rear' : ''} ${isFront ? 'fr' : ''}`}
       >
         {item !== null ? (
           <div>Value: {item}, Index: {index}</div>
@@ -31,7 +31,7 @@ const CircularQueueElement = (props) => {
 
 
         {isFront ? (
-          <div className=''>
+          <div>
             <i className="fa-solid fa-arrow-up"></i>
             <p>front</p></div>
         ) : (

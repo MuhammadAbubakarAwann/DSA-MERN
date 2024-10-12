@@ -1,4 +1,3 @@
-// BSTElement.js
 import React from 'react';
 
 const BSTElement = ({ node }) => {

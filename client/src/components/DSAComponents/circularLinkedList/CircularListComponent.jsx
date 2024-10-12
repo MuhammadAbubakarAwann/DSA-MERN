@@ -1,4 +1,3 @@
-// React component for rendering the linked list
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addNode} from '../../../app/services/circularLinkedListSlice';
